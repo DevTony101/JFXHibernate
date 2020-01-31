@@ -1,0 +1,20 @@
+.jfx-tab-pane .headers-region {
+    -fx-padding: 10px;
+    -fx-background-color: #005072;
+}
+
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: #005072;
+}
+
+.jfx-tab-pane .control-buttons-tab {
+    -fx-background-color: RED;
+}
+
+.jfx-tab-pane .control-buttons-tab .tab-down-button {
+    -fx-background-color: GREEN;
+}
+
+.jfx-tab-pane .control-buttons-tab .jfx-rippler {
+    -jfx-rippler-fill: Yellow;
+}
