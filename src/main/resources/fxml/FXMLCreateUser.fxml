@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateUserController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="260.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controllers.CreateUserController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Fill the fields below">
+         <font>
+            <Font name="Segoe UI Bold" size="21.0" />
+         </font>
+      </Label>
+      <Separator layoutX="10.0" layoutY="51.0" prefWidth="360.0" />
+      <JFXTextField fx:id="fieldFName" labelFloat="true" layoutX="14.0" layoutY="73.0" prefHeight="28.0" prefWidth="170.0" promptText="First Name">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="fieldLName" labelFloat="true" layoutX="216.0" layoutY="73.0" prefHeight="28.0" prefWidth="170.0" promptText="Last Name">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox fx:id="cbCivilStatus" editable="true" labelFloat="true" layoutX="216.0" layoutY="132.0" prefHeight="28.0" prefWidth="170.0" promptText="Civil Status" visibleRowCount="3" />
+      <JFXTextField fx:id="fieldUsername" labelFloat="true" layoutX="14.0" layoutY="132.0" prefHeight="28.0" prefWidth="170.0" promptText="Username">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXCheckBox fx:id="cbAuto" layoutX="14.0" layoutY="170.0" text="Auto-generate" />
+      <JFXButton buttonType="RAISED" layoutX="303.0" layoutY="214.0" prefHeight="25.0" prefWidth="82.0" ripplerFill="WHITE" style="-fx-background-color: #B3CA54;" text="Create" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Segoe UI Bold" size="13.0" />
+         </font>
+      </JFXButton>
+   </children>
 </AnchorPane>
