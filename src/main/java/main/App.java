@@ -28,8 +28,8 @@ public class App extends Application {
             primaryStage.setTitle(Constants.APP_TITLE);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
-            primaryStage.setMaxWidth(775);
-            primaryStage.setMaxHeight(600);
+            primaryStage.setMaxWidth(780);
+            primaryStage.setMaxHeight(630);
             primaryStage.show();
         } else {
             System.exit(-1);

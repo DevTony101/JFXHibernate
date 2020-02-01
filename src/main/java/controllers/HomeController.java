@@ -30,6 +30,8 @@ public class HomeController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Create New User");
             stage.setResizable(false);
+            stage.setMaxWidth(405);
+            stage.setMinHeight(260);
             stage.setScene(new Scene(root));
             stage.show();
         }
