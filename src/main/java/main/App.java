@@ -10,35 +10,30 @@ import utils.Constants;
 
 import java.net.URL;
 import static javafx.application.Application.launch;
+import org.jboss.logging.Logger;
 
 public class App extends Application {
-
-    private double xPos, yPos;
+    
+    private static final Logger LOG = Logger.getLogger(App.class);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         URL path = getClass().getResource(Constants.FXML_HOME);
         if (path != null) {
             Parent root = FXMLLoader.load(path);
-            root.setOnMousePressed((value) -> {
-                xPos = value.getSceneX();
-                yPos = value.getSceneY();
-            });
-
-            root.setOnMouseDragged((value) -> {
-                primaryStage.setX(value.getScreenX() - xPos);
-                primaryStage.setY(value.getScreenY() - yPos);
-            });
-
+            
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
 
             primaryStage.setTitle(Constants.APP_TITLE);
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
+            primaryStage.setMaxWidth(775);
+            primaryStage.setMaxHeight(600);
             primaryStage.show();
         } else {
             System.exit(-1);
-            System.err.println("Sorry, the main fxml could not be loaded.");
+            LOG.error("Sorry, the main fxml could not be loaded.");
         }
     }
 
