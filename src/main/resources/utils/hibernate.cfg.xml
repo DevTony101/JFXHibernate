@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/testdb?useSSL=true&amp;serverTimezone=UTC</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password" />
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <mapping class="entities.User" />
+        <mapping class="entities.Task" />
+    </session-factory>
+</hibernate-configuration> 
