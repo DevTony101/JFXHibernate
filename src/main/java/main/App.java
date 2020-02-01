@@ -6,8 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import utilities.Constants;
+import utils.Constants;
 
 import java.net.URL;
 import static javafx.application.Application.launch;
@@ -35,7 +34,6 @@ public class App extends Application {
             scene.setFill(Color.TRANSPARENT);
 
             primaryStage.setTitle(Constants.APP_TITLE);
-            primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.setScene(scene);
             primaryStage.show();
         } else {
