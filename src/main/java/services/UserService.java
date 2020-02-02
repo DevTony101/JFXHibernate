@@ -2,6 +2,8 @@ package services;
 
 import entities.User;
 import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.List;
 import lombok.NoArgsConstructor;
 import repositories.UserRepository;
 
@@ -33,4 +35,9 @@ public class UserService {
         user.setVerified(Boolean.TRUE);
         repo.save(user);
     }
+    
+    public List<User> getAllUsers() {
+        return new LinkedList<>(repo.getAll());
+    }
+    
 }

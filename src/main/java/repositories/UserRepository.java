@@ -1,6 +1,7 @@
 package repositories;
 
 import entities.User;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import lombok.Cleanup;
@@ -59,7 +60,21 @@ public class UserRepository implements DAORepository<User> {
 
     @Override
     public List<User> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        @Cleanup
+        Session session = FACTORY.openSession();
+        Transaction trans = session.beginTransaction();
+        List<User> users = new LinkedList<>();
+        try {
+            String jpql = "SELECT u FROM User u";
+            users.addAll(session.createQuery(jpql, User.class).getResultList());
+            LOG.info("Retrieving all users...");
+        } catch (Exception e) {
+            LOG.error("Error: " + e.getMessage());
+        } finally {
+            trans.commit();
+        }
+
+        return users;
     }
 
 }
