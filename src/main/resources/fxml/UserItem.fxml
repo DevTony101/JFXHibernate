@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="75.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <FontAwesomeIconView glyphName="USER" layoutX="14.0" layoutY="54.0" size="50" />
+      <Label fx:id="lblName" layoutX="82.0" layoutY="14.0" prefHeight="17.0" prefWidth="260.0" text="Miguel Manjarres Cortezano">
+         <font>
+            <Font name="Segoe UI" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUsername" layoutX="82.0" layoutY="38.0" prefHeight="22.0" prefWidth="90.0" text="\@dtony">
+         <font>
+            <Font name="Segoe UI Italic" size="14.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Username" />
+         </tooltip>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TEXT_ONLY" layoutX="632.0" layoutY="38.0" prefHeight="22.0" prefWidth="90.0" text="0 task so far" textAlignment="RIGHT" textFill="#979393">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="GRAPHIC_ONLY" layoutX="697.0" layoutY="13.0" onMouseClicked="#addNewTask" text="Label">
+         <graphic>
+            <MaterialDesignIconView fx:id="mdCalendar" fill="#868383" glyphName="CALENDAR_PLUS" size="25" />
+         </graphic>
+         <tooltip>
+            <Tooltip text="Add new task" />
+         </tooltip>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Separator layoutX="20.0" layoutY="70.0" prefWidth="700.0" />
+   </children>
+</AnchorPane>
