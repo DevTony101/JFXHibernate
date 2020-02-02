@@ -19,7 +19,7 @@ import utils.*;
  * @author Tony Manjarres
  */
 public class HomeController implements Initializable {
-    
+
     private static Logger LOG = Logger.getLogger(HomeController.class);
 
     @FXML
@@ -31,14 +31,13 @@ public class HomeController implements Initializable {
             stage.setTitle("Create New User");
             stage.setResizable(false);
             stage.setMaxWidth(405);
-            stage.setMinHeight(260);
+            stage.setMinHeight(240);
             stage.setScene(new Scene(root));
             stage.show();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             LOG.error("Not found: " + Constants.FXML_CREATE_USER);
         }
-    }
+    } 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
