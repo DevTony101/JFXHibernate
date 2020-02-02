@@ -27,7 +27,6 @@ CREATE TABLE `tasks` (
 
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
-  `age` int(11) NOT NULL,
   `civilStatus` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` date NOT NULL,
   `firstName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,

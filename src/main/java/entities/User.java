@@ -45,9 +45,6 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
-    private Integer age;
-
     @Column
     private String civilStatus;
 
