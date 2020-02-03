@@ -7,5 +7,6 @@ public class Constants {
     
     public static final String FXML_HOME = "/fxml/FXMLHome.fxml";
     public static final String FXML_CREATE_USER = "/fxml/FXMLCreateUser.fxml";
+    public static final String FXML_CREATE_TASK = "/fxml/FXMLCreateTask.fxml";
     public static final String FXML_USER_ITEM = "/fxml/UserItem.fxml";
 }
