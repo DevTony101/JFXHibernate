@@ -8,9 +8,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.paint.Paint;
 
 import entities.User;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import org.jboss.logging.Logger;
+import utils.Constants;
 
 /**
  * FXML Controller class
@@ -18,6 +25,8 @@ import javafx.scene.input.MouseEvent;
  * @author Tony Manjarres
  */
 public class UserItemController implements Initializable {
+
+    private static final Logger LOG = Logger.getLogger(UserItemController.class);
 
     @FXML
     private MaterialDesignIconView mdCalendar;
@@ -49,6 +58,23 @@ public class UserItemController implements Initializable {
     @FXML
     void addNewTask(MouseEvent event) {
         System.out.println("User id: " + user.getId());
+        URL path = getClass().getResource(Constants.FXML_CREATE_TASK);
+        try {
+            FXMLLoader loader = new FXMLLoader(path);
+            CreateTaskController controller = new CreateTaskController();
+            controller.setUser(user);
+            loader.setController(controller);
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Create New Task");
+            stage.setResizable(false);
+            stage.setMaxWidth(405);
+            stage.setMinHeight(240);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            LOG.error("Not found: " + Constants.FXML_CREATE_TASK);
+        }
     }
 
     void setUser(User user) {
