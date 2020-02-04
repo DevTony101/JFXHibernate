@@ -6,7 +6,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import lombok.NoArgsConstructor;
-import org.hibernate.Hibernate;
 import repositories.UserRepository;
 
 /**
@@ -44,11 +43,7 @@ public class UserService {
 
     public User getUserById(Long id) {
         Optional<User> op = repo.getById(id);
-        User user = null;
-        if (op.isPresent()) {
-            user = op.get();
-        }
-        return user;
+        return (op.isPresent() ? op.get() : null);
     }
 
     public List<User> getAllUsers() {
