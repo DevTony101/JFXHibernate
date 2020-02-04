@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import lombok.Cleanup;
 import lombok.NoArgsConstructor;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.jboss.logging.Logger;
@@ -45,7 +46,17 @@ public class UserRepository implements DAORepository<User> {
 
     @Override
     public void update(User obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        @Cleanup
+        Session session = FACTORY.openSession();
+        Transaction trans = session.beginTransaction();
+        try {
+            session.update(obj);
+            LOG.info("User updated succesfully");
+        } catch (Exception e) {
+            LOG.error("Error: " + e.getMessage());
+        } finally {
+            trans.commit();
+        }
     }
 
     @Override
@@ -55,7 +66,14 @@ public class UserRepository implements DAORepository<User> {
 
     @Override
     public Optional<User> getById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        @Cleanup
+        Session session = FACTORY.openSession();
+        Transaction trans = session.beginTransaction();
+        String jpql = "SELECT u FROM User u WHERE u.id = :id";
+        User user = session.createQuery(jpql, User.class).setParameter("id", id).getSingleResult();
+        Hibernate.initialize(user.getTasks());
+        trans.commit();
+        return Optional.of(user);
     }
 
     @Override
