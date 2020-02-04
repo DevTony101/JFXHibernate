@@ -12,10 +12,10 @@ Because it is always good to separate the responsibilities in our program, we im
 3. Then we create the services, a class that acts as a bridge between the controller and the repository
 4. Finally, we proceed to create the views and controllers as we know
 
-### TO-DO
+## TO-DO
 - Implement proper validations when creating a new user and/or task
 - Extend the functionality of the app to use the rest of the CRUD operations (Currently, we only use create and update)
 
-### Improvements
+## Improvements
 - It is recommended to create an interface for the services and then create a class to implement the methods, here we create the methods directly in the class
 - When creating an information control system, it is useful to have some kind of registry that tells us **when** a certain entry was modified in a table and **who** did it, that process is called _Audit_, thus a great improvement would be to implement _@PrePersist_ and _@PreUpdate_ (JPA entity listeners) to simulate that behaviour
