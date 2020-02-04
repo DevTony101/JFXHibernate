@@ -1,5 +1,5 @@
 # JFXHibernate
-This is a test app where I try to apply the **MVC** model we would normally use in a web app in a javaFX desktop app using hibernate, the main goal of this is to set up a model structure for any project.
+This is a test app where I tried to apply the **MVC** model we would normally use in a web app, in a javaFX desktop app using hibernate, the main goal of this is to set up a model structure for any project.
 
 Here we have two simple entities: _User_ and _Task_
 <p align="center">
