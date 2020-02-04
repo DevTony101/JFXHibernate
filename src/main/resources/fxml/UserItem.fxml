@@ -28,7 +28,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="TEXT_ONLY" layoutX="632.0" layoutY="38.0" prefHeight="22.0" prefWidth="90.0" text="0 task so far" textAlignment="RIGHT" textFill="#979393">
+      <Label fx:id="lblTasks" alignment="CENTER_RIGHT" contentDisplay="TEXT_ONLY" layoutX="582.0" layoutY="38.0" prefHeight="22.0" prefWidth="140.0" text="0 task so far" textAlignment="RIGHT" textFill="#979393">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>

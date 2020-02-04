@@ -37,7 +37,7 @@
             <Font name="Segoe UI Bold" size="13.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lblUser" layoutX="286.0" layoutY="20.0" prefHeight="15.0" prefWidth="85.0" text="user: @dtony">
+      <Label fx:id="lblUser" layoutX="248.0" layoutY="20.0" prefHeight="15.0" prefWidth="120.0" text="user: @dtony101">
          <font>
             <Font name="Segoe UI Italic" size="12.0" />
          </font>
