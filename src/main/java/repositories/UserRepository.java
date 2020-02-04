@@ -85,6 +85,7 @@ public class UserRepository implements DAORepository<User> {
         try {
             String jpql = "SELECT u FROM User u";
             users.addAll(session.createQuery(jpql, User.class).getResultList());
+            users.forEach(user -> Hibernate.initialize(user.getTasks()));
             LOG.info("Retrieving all users...");
         } catch (Exception e) {
             LOG.error("Error: " + e.getMessage());
