@@ -34,7 +34,6 @@ public class HomeController implements Initializable {
 
     //
     private final UserService uService = UserService.getInstance();
-    private static int ogCount = 0; // Original count of rows in the table users
 
     @FXML
     private void addNewUser(MouseEvent event) {
@@ -63,18 +62,19 @@ public class HomeController implements Initializable {
         // Every 5 seconds
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(5000), (event) -> {
             List<User> users = uService.getAllUsers();
-            if (users.size() != ogCount) try {
-                ogCount = users.size();
-                vbUsers.getChildren().clear();
-                for (User user : users) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.FXML_USER_ITEM));
-                    UserItemController controller = new UserItemController();
-                    loader.setController(controller);
-                    vbUsers.getChildren().add(loader.load());
-                    controller.setUser(user);
+            if (!users.isEmpty()) {
+                try {
+                    vbUsers.getChildren().clear();
+                    for (User user : users) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.FXML_USER_ITEM));
+                        UserItemController controller = new UserItemController();
+                        loader.setController(controller);
+                        vbUsers.getChildren().add(loader.load());
+                        controller.setUser(user);
+                    }
+                } catch (IOException e) {
+                    LOG.error("Error: " + e.getMessage());
                 }
-            } catch (IOException e) {
-                LOG.error("Error: " + e.getMessage());
             }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);

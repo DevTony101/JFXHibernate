@@ -25,17 +25,20 @@ import utils.Constants;
  * @author Tony Manjarres
  */
 public class UserItemController implements Initializable {
-
+    
     private static final Logger LOG = Logger.getLogger(UserItemController.class);
-
+    
     @FXML
     private MaterialDesignIconView mdCalendar;
-
+    
     @FXML
     private Label lblName;
-
+    
     @FXML
     private Label lblUsername;
+    
+    @FXML
+    private Label lblTasks;
 
     //
     private User user;
@@ -49,12 +52,12 @@ public class UserItemController implements Initializable {
         mdCalendar.setOnMouseEntered(value -> {
             mdCalendar.setFill(Paint.valueOf("BLACK"));
         });
-
+        
         mdCalendar.setOnMouseExited(value -> {
             mdCalendar.setFill(Paint.valueOf("LIGHTGRAY"));
         });
     }
-
+    
     @FXML
     void addNewTask(MouseEvent event) {
         System.out.println("User id: " + user.getId());
@@ -76,12 +79,16 @@ public class UserItemController implements Initializable {
             LOG.error("Not found: " + Constants.FXML_CREATE_TASK);
         }
     }
-
+    
     void setUser(User user) {
         this.user = user;
         lblName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
         lblName.setTooltip(new Tooltip(user.getCivilStatus()));
         lblUsername.setText("@" + user.getUsername());
+        int numTasks = user.getTasks().size();
+        if (numTasks > 0) {
+            lblTasks.setText(String.format("This user has %d tasks", numTasks));
+        }
     }
-
+    
 }
